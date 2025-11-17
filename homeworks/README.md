@@ -8,9 +8,9 @@
 
 Дата выдачи: 09.11.2025
 
-Дата мягкого дедлайна: 13.12.2025
+Дата мягкого дедлайна: 14.12.2025
 
-Дата жесткого дедлайна: 20.12.2025
+Дата жесткого дедлайна: 21.12.2025
 
 ДЗ имеет бонусную часть, где нужно реализовать руками обучание нейросети без использования PyTorch. За бонус можно получить до 10 баллов, которые идут в числитель, но не идут в знаменатель. 
 
@@ -18,25 +18,25 @@
 
 Дата выдачи: 09.11.2025
 
-Дата мягкого дедлайна: 17.01.2026
+Дата мягкого дедлайна: 18.01.2026
 
-Дата жесткого дедлайна: 24.01.2026
+Дата жесткого дедлайна: 25.01.2026
 
 ДЗ имеет бонусную часть на 1 балл, который идет в числитель, но не идёт в знаменатель. 
 
 ### Домашнее задание 3
 
-Дата выдачи: 09.11.2025
+Дата выдачи: 17.11.2025
 
-Дата мягкого дедлайна: 14.02.2026
+Дата мягкого дедлайна: 15.02.2026
 
-Дата жесткого дедлайна: 21.02.2026
+Дата жесткого дедлайна: 22.02.2026
 
 ДЗ имеет бонусную часть на 1 балл, который идет в числитель, но не идёт в знаменатель. 
 
 ### Домашнее задание 4
 
-Дата выдачи: 09.11.2025
+Дата выдачи: 17.11.2025
 
 Дата мягкого дедлайна: 10.03.2026
 
@@ -55,9 +55,9 @@ Homework 1
 
 Date of issue: 09.11.2025
 
-Soft deadline: 13.12.2025
+Soft deadline: 14.12.2025
 
-Hard deadline: 20.12.2025
+Hard deadline: 21.12.2025
 
 The homework assignment has a bonus section where you need to implement neural network training manually without using PyTorch. You can earn up to 10 points for the bonus, which go into the numerator but not the denominator. 
 
@@ -65,25 +65,25 @@ The homework assignment has a bonus section where you need to implement neural n
 
 Date of issue: 09.11.2025
 
-Soft deadline: 17.01.2026
+Soft deadline: 18.01.2026
 
-Hard deadline: 24.01.2026
+Hard deadline: 25.01.2026
 
 The homework assignment has a bonus section worth 1 point, which counts toward the numerator but not the denominator. 
 
 ### Homework 3
 
-Date of issue: 09.11.2025
+Date of issue: 17.11.2025
 
-Soft deadline: 14.02.2026
+Soft deadline: 15.02.2026
 
-Hard deadline: 21.02.2026
+Hard deadline: 22.02.2026
 
 Homework has a bonus part worth 1 point, which goes into the numerator but not into the denominator. 
 
 ### Homework 4
 
-Date of issue: 09.11.2025
+Date of issue: 17.11.2025
 
 Soft deadline: 10.03.2026
 

@@ -1,9 +1,46 @@
+minimum_pre_commit_version: '3.7.0'
+default_language_version:
+  python: python3
 repos:
-- repo: https://github.com/nbQA-dev/nbQA
-  rev: 1.9.1
-  hooks:
-    - id: nbqa-black
-    - id: nbqa-pyupgrade
-      args: ["--py37-plus"]
-    - id: nbqa-isort
-      args: ["--profile=black"]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: detect-private-key
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+        exclude: '\.(ipynb|svg)$'
+      - id: end-of-file-fixer
+        exclude: '\.(ipynb|svg)$'
+      - id: check-added-large-files
+        args: [--maxkb=4096]
+        exclude: '^(lectures/|seminars/|homeworks/HW3/img/)'
+  - repo: https://github.com/kynan/nbstripout
+    rev: 0.8.1
+    hooks:
+      - id: nbstripout
+        files: '^homeworks/.*\.ipynb$'
+        args: [--keep-id]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.13
+    hooks:
+      - id: ruff
+        args: [--fix]
+        types_or: [python, pyi, jupyter]
+        exclude: '^seminars/'
+      - id: ruff-format
+        types_or: [python, pyi, jupyter]
+        exclude: '^seminars/'
+  - repo: local
+    hooks:
+      - id: validate-notebooks
+        name: Проверка структуры ноутбуков
+        entry: python tools/validate_notebooks.py
+        language: python
+        additional_dependencies: [nbformat==5.10.4]
+        files: '\.ipynb$'

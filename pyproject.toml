@@ -1,0 +1,13 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["seminars", ".venv", "data", "runs"]
+
+[tool.ruff.lint]
+# Неиспользуемые импорты и переменные в учебных заготовках допустимы.
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.ruff.lint.per-file-ignores]
+# В заготовках бонуса используются переменные, которые вводит студент.
+"homeworks/HW1/modules/*.py" = ["F821"]
+"*.ipynb" = ["F821"]

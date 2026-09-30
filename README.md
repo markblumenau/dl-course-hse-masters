@@ -1,51 +1,74 @@
-# Курс "Глубинное обучение" MDS НИУ ВШЭ
+# Глубинное обучение - магистратура НИУ ВШЭ
 
-## Темы курса
-1. Оптимизация. Momentum, Adam, AdamW.
-2. Linear, BatchNorm, Dropout, Init.
-
-
-## Формула оценивания
-
-$0.6 HW + 0.4 \cdot Exam$, где
-
-$HW = \frac{\Sigma_{i=0}^4 HW_i+ Bonus}{4}$,
+Русскоязычная редакция курса 2026/27. Преподаватель - Марк Блуменау.
+Курс учит строить нейросетевые модели, проверять их работу и делать выводы из экспериментов.
 
 
-Информация по экзамену будет доступна ближе к концу ноября.
+## Программа и материалы
+
+| Тема | Лекции | Практика |
+|---|---|---|
+| Градиенты, SGD, momentum, Adam/AdamW | [Лекция 1](lectures/Lec1.svg) | [Семинар 1](seminars/01_Introduction_to_PyTorch.ipynb), ДЗ1 |
+| Линейные слои, активации, инициализация, BatchNorm, Dropout | [Лекция 2](lectures/Lec2.pdf) | [Семинар 2](seminars/01_Introduction_to_PyTorch.ipynb), ДЗ1 и бонус |
+| Свёртки, поле восприятия, pooling, padding | [Лекция 3](lectures/Lec3.pdf) | [Семинар 3](seminars/03_Image_Convolution.ipynb) |
 
 
-## Благодарности
+## Оценивание
 
-Автор благодарит авторов других курсов НИУ ВШЭ, из которых заимствована часть материалов и домашних заданий:
-- [Курс "Глубинное обучение 1"](https://github.com/isadrtdinov/intro-to-dl-hse/tree/master-2024)
-- [Курс "Основы глубинного обучения"](https://github.com/hse-ds/iad-deep-learning)
-- [Курс "Генеративные модели в машинном обучении"](https://github.com/hushchyn-mikhail/gen_models_ai_hse/tree/main)
-- [Курс "Машинное обучение"](https://github.com/esokolov/ml-course-hse/tree/master)
+Обозначим через $H_i$ основную оценку за ДЗ $i$ после штрафа, $0\leq H_i\leq10$, через $B_i$ — принятые бонусные баллы. Всего четыре ДЗ:
 
+$$
+\mathrm{ДЗ}=\frac{H_1+H_2+H_3+H_4+B_1+B_2+B_3+B_4}{4}.
+$$
 
+Бонусы входят в числитель, но не меняют знаменатель: $B_1\leq10$, $B_2,B_3,B_4\leq1$. Несданное задание даёт 0 и не исключается из среднего. Экзамен оценивается от 0 до 10.
 
-# Deep Learning Course, MDS HSE University
+$$
+\boxed{\mathrm{Итог}=\min\left(10,\;0.6\cdot\min(12,\mathrm{ДЗ})+0.4\cdot\mathrm{ЭКЗ}\right)}
+$$
 
-## Course Topics
-1. Optimization. Momentum, Adam, AdamW.
-2. Linear, BatchNorm, Dropout, Init.
+| Основные ДЗ | Сумма бонусов | ДЗ до ограничения | Экзамен | Итог |
+|---|---:|---:|---:|---:|
+| 8, 8, 8, 8 | 0 | 8 | 7 | 7.6 |
+| 10, 10, 10, 10 | 8 | 12 | 7 | 10 |
+| 10, 10, 10, 10 | 13 | 13.25 -> 12 | 10 | 10 |
+| 10, 10, 10, 0 | 0 | 7.5 | 6 | 6.9 |
 
+Промежуточные величины не округляются. Итоговая оценка округляется арифметически для выставления в СЭВ.
 
-## Grading formula
+## Как устроены домашние задания
 
-$0.6 HW + 0.4 \cdot Exam$, where
+| Задание | Основной результат | Максимум |
+|---|---|---:|
+| [ДЗ1](homeworks/HW1/HW1_Light.ipynb) | Влияние масштабирования, функции потерь, оптимизатора и регуляризации | 10 |
+| [Бонус ДЗ1](homeworks/HW1/HW1_Bonus.ipynb) | NumPy-фреймворк, численные градиенты и сравнение с PyTorch | +10 |
+| [ДЗ2](homeworks/HW2/HW2.ipynb) | Сравнение детекторов, аугментаций и постобработки | 10 + 1 |
+| [ДЗ3](homeworks/HW3/HW3.ipynb) | Условная генерация: распределения, метрики и запоминание | 10 + 1 |
+| [ДЗ4](homeworks/HW4/HW4.ipynb) | Русская суммаризация: декодирование и достоверность | 10 + 1 |
 
-$HW = \frac{\Sigma_{i=0}^4 HW_i+ Bonus}{4}$,
+## Среда и запуск
 
+Для новой работы используйте Python 3.11 или 3.12 и отдельное окружение. Установите PyTorch и torchvision по [официальной инструкции](https://pytorch.org/get-started/locally/) для вашей ОС и устройства, затем базовые библиотеки:
 
-Information about the exam will be available towards the end of November.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install jupyterlab numpy pandas scipy matplotlib seaborn scikit-learn tqdm
+jupyter lab
+```
 
+В Windows активация: `.venv\Scripts\activate`. Для ДЗ2 дополнительно нужны `ultralytics`, `torchmetrics`, `pycocotools`, `Pillow`; для DDPM в ДЗ3 - `diffusers`; для ДЗ4 - `transformers`, `datasets`, `rouge-score` (необязательный BERTScore - `bert-score`).
 
-## Acknowledgements
+Данные и предобученные веса загружаются отдельно по ссылкам заданий.
 
-The author would like to thank the authors of other HSE courses, from which some of the materials and homework assignments were borrowed:
-- [Course “Deep Learning 1”](https://github.com/isadrtdinov/intro-to-dl-hse/tree/master-2024)
-- [Course “Fundamentals of Deep Learning”](https://github.com/hse-ds/iad-deep-learning)
-- [Course “Generative Models in Machine Learning”](https://github.com/hushchyn-mikhail/gen_models_ai_hse/tree/main)
-- [Course "Machine Learning"](https://github.com/esokolov/ml-course-hse/tree/master)
+## Благодарности и происхождение
+
+Сохранены лицензия репозитория и ссылки на курсы, из которых заимствованы материалы:
+
+- [Глубокое обучение 1](https://github.com/isadrtdinov/intro-to-dl-hse/tree/master-2024)
+- [Основы глубинного обучения](https://github.com/hse-ds/iad-deep-learning)
+- [Генеративные модели](https://github.com/hushchyn-mikhail/gen_models_ai_hse/tree/main)
+- [Машинное обучение, Е. Соколов](https://github.com/esokolov/ml-course-hse/tree/master)
+
+Лицензии внешних данных, рисунков и моделей определяются их авторами; лицензия этого репозитория не заменяет их условия.

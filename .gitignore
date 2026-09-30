@@ -174,3 +174,23 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Данные, веса и локальная среда курса
+.venv/
+data/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+data.txt.zip
+magic04.data
+split_indices.npz
+# Промежуточные файлы LaTeX; PDF и TEX хранятся в репозитории
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+.DS_Store

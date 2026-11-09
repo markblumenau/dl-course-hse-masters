@@ -1,74 +1,74 @@
-# Глубинное обучение - магистратура НИУ ВШЭ
+# Глубинное обучение, магистратура НИУ ВШЭ
 
-Русскоязычная редакция курса 2026/27. Преподаватель - Марк Блуменау.
-Курс учит строить нейросетевые модели, проверять их работу и делать выводы из экспериментов.
+Курс 2026/27. Преподаватель: Марк Блуменау.
 
+## Материалы
 
-## Программа и материалы
+| № | Тема | Лекция | Семинар |
+|---|---|---|---|
+| 1 | Оптимизация: SGD, momentum, Adam, AdamW | [pdf](lectures/01_Optimization.pdf), [svg](lectures/01_Optimization.svg) | [Введение в PyTorch](seminars/01_Introduction_to_PyTorch.ipynb) |
+| 2 | Linear, BatchNorm, Dropout, функции потерь | [pdf](lectures/02_Linear_BatchNorm_Dropout.pdf) | |
+| 3 | Свертки | [pdf](lectures/03_Convolution.pdf) | [Свертка изображений](seminars/03_Image_Convolution.ipynb) |
+| 4 | Аугментации и основные сверточные архитектуры | [pdf](lectures/04_Augmentations_CNN_Architectures.pdf) | [Классификация изображений](seminars/04_Image_Classification.ipynb) |
+| 5 | Детекция и сегментация | [pdf](lectures/05_Detection_Segmentation.pdf) | [Сегментация и детекция](seminars/05_Segmentation_and_Detection.ipynb) |
+| 6 | Трекинг, ReID, сегментация | [pdf](lectures/06_Tracking_ReID_Segmentation.pdf), [дополнение: contrastive learning, pose estimation](lectures/06_add_Contrastive_Pose_Estimation.pdf) | [Few-shot и zero-shot learning](seminars/06_Few_Zero_Shot_Learning.ipynb) |
+| 7 | Эмбеддинги | [pdf](lectures/07_Embeddings.pdf) | [Word2Vec руками](seminars/07_Word2Vec_by_hand.ipynb), [Word2Vec в gensim](seminars/07_Word2Vec_gensim.ipynb) |
 
-| Тема | Лекции | Практика |
-|---|---|---|
-| Градиенты, SGD, momentum, Adam/AdamW | [Лекция 1](lectures/Lec1.svg) | [Семинар 1](seminars/01_Introduction_to_PyTorch.ipynb), ДЗ1 |
-| Линейные слои, активации, инициализация, BatchNorm, Dropout | [Лекция 2](lectures/Lec2.pdf) | [Семинар 2](seminars/01_Introduction_to_PyTorch.ipynb), ДЗ1 и бонус |
-| Свёртки, поле восприятия, pooling, padding | [Лекция 3](lectures/Lec3.pdf) | [Семинар 3](seminars/03_Image_Convolution.ipynb) |
+Материалы будут добавляться по ходу курса.
 
+## Домашние задания
+
+| Задание | Тема | Баллы |
+|---|---|---:|
+| [ДЗ 1](homeworks/HW1/HW1_Light.ipynb) | Полносвязные сети | 10 |
+| [Бонус ДЗ 1](homeworks/HW1/HW1_Bonus.ipynb) | Нейросеть на NumPy своими руками | +10 |
+| [ДЗ 2](homeworks/HW2/HW2_YOLO.ipynb) | Детекция объектов, YOLO | 10 |
+| Бонус ДЗ 2 | mAP и сравнение своего детектора с YOLO11, в конце ДЗ 2 | +1 |
+| [ДЗ 3](homeworks/HW3/HW3_Transformers.ipynb) | Трансформеры, суммаризация новостей | 10 |
+| Бонус ДЗ 3 | Decoder-only против encoder-decoder, в конце ДЗ 3 | +1 |
+
+Дедлайны и правила сдачи: [homeworks/README.md](homeworks/README.md).
 
 ## Оценивание
 
-Обозначим через $H_i$ основную оценку за ДЗ $i$ после штрафа, $0\leq H_i\leq10$, через $B_i$ — принятые бонусные баллы. Всего четыре ДЗ:
+Пусть $H_1, H_2, H_3$ это оценки за основные части ДЗ с учетом штрафов, $B_1 \leq 10$, $B_2 \leq 1$, $B_3 \leq 1$ это бонусные баллы. Бонусы идут в числитель, но не в знаменатель:
 
 $$
-\mathrm{ДЗ}=\frac{H_1+H_2+H_3+H_4+B_1+B_2+B_3+B_4}{4}.
+\mathrm{ДЗ} = \frac{H_1 + H_2 + H_3 + B_1 + B_2 + B_3}{3}.
 $$
 
-Бонусы входят в числитель, но не меняют знаменатель: $B_1\leq10$, $B_2,B_3,B_4\leq1$. Несданное задание даёт 0 и не исключается из среднего. Экзамен оценивается от 0 до 10.
+Экзамен оценивается от 0 до 10.
 
 $$
-\boxed{\mathrm{Итог}=\min\left(10,\;0.6\cdot\min(12,\mathrm{ДЗ})+0.4\cdot\mathrm{ЭКЗ}\right)}
+\mathrm{Итог} = \min\left(10,\ 0.6 \cdot \min(12, \mathrm{ДЗ}) + 0.4 \cdot \mathrm{Экз}\right)
 $$
 
-| Основные ДЗ | Сумма бонусов | ДЗ до ограничения | Экзамен | Итог |
+Несданное задание дает 0 баллов. Промежуточные величины не округляются, итоговая оценка округляется арифметически.
+
+| Основные ДЗ | Бонусы | ДЗ | Экзамен | Итог |
 |---|---:|---:|---:|---:|
-| 8, 8, 8, 8 | 0 | 8 | 7 | 7.6 |
-| 10, 10, 10, 10 | 8 | 12 | 7 | 10 |
-| 10, 10, 10, 10 | 13 | 13.25 -> 12 | 10 | 10 |
-| 10, 10, 10, 0 | 0 | 7.5 | 6 | 6.9 |
+| 8, 8, 8 | 0 | 8 | 7 | 7.6 |
+| 10, 10, 10 | 6 | 12 | 7 | 10 |
+| 10, 10, 0 | 0 | 6.67 | 6 | 6.4 |
 
-Промежуточные величины не округляются. Итоговая оценка округляется арифметически для выставления в СЭВ.
+## Экзамен
 
-## Как устроены домашние задания
+[Билеты](exam/exam_questions.pdf) и [теоретический минимум](exam/theorminimum.pdf).
 
-| Задание | Основной результат | Максимум |
-|---|---|---:|
-| [ДЗ1](homeworks/HW1/HW1_Light.ipynb) | Влияние масштабирования, функции потерь, оптимизатора и регуляризации | 10 |
-| [Бонус ДЗ1](homeworks/HW1/HW1_Bonus.ipynb) | NumPy-фреймворк, численные градиенты и сравнение с PyTorch | +10 |
-| [ДЗ2](homeworks/HW2/HW2.ipynb) | Сравнение детекторов, аугментаций и постобработки | 10 + 1 |
-| [ДЗ3](homeworks/HW3/HW3.ipynb) | Условная генерация: распределения, метрики и запоминание | 10 + 1 |
-| [ДЗ4](homeworks/HW4/HW4.ipynb) | Русская суммаризация: декодирование и достоверность | 10 + 1 |
+## Окружение
 
-## Среда и запуск
-
-Для новой работы используйте Python 3.11 или 3.12 и отдельное окружение. Установите PyTorch и torchvision по [официальной инструкции](https://pytorch.org/get-started/locally/) для вашей ОС и устройства, затем базовые библиотеки:
+Нужен Python 3.11 или 3.12. PyTorch и torchvision ставьте по [официальной инструкции](https://pytorch.org/get-started/locally/) под свою ОС и устройство, остальное:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install jupyterlab numpy pandas scipy matplotlib seaborn scikit-learn tqdm
-jupyter lab
+pip install jupyterlab numpy pandas scipy matplotlib seaborn scikit-learn tqdm
 ```
 
-В Windows активация: `.venv\Scripts\activate`. Для ДЗ2 дополнительно нужны `ultralytics`, `torchmetrics`, `pycocotools`, `Pillow`; для DDPM в ДЗ3 - `diffusers`; для ДЗ4 - `transformers`, `datasets`, `rouge-score` (необязательный BERTScore - `bert-score`).
+Для ДЗ 2 дополнительно нужны `albumentations` и `ultralytics`, для ДЗ 3 `transformers`, `datasets`, `evaluate`, `rouge_score`, `bert_score`. Все задания можно делать в Google Colab или Kaggle.
 
-Данные и предобученные веса загружаются отдельно по ссылкам заданий.
+## Благодарности
 
-## Благодарности и происхождение
-
-Сохранены лицензия репозитория и ссылки на курсы, из которых заимствованы материалы:
-
-- [Глубокое обучение 1](https://github.com/isadrtdinov/intro-to-dl-hse/tree/master-2024)
+Часть материалов и домашних заданий заимствована из других курсов НИУ ВШЭ:
+- [Глубинное обучение 1](https://github.com/isadrtdinov/intro-to-dl-hse/tree/master-2024)
 - [Основы глубинного обучения](https://github.com/hse-ds/iad-deep-learning)
-- [Генеративные модели](https://github.com/hushchyn-mikhail/gen_models_ai_hse/tree/main)
-- [Машинное обучение, Е. Соколов](https://github.com/esokolov/ml-course-hse/tree/master)
-
-Лицензии внешних данных, рисунков и моделей определяются их авторами; лицензия этого репозитория не заменяет их условия.
+- [Генеративные модели в машинном обучении](https://github.com/hushchyn-mikhail/gen_models_ai_hse/tree/main)
+- [Машинное обучение](https://github.com/esokolov/ml-course-hse/tree/master)
